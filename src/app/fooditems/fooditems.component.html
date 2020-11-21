@@ -1,0 +1,54 @@
+<h1 align="center">Order Food </h1>
+<h2 align="center"> Order any food item for Rs.{{ prize }}</h2>
+<div align="center">
+    <form [formGroup]="foodForm">
+        <table border="2">
+            <tr>
+                <td>
+                    <label>Customer Name</label>
+                </td>
+                <td>
+                    <input type="text" formControlName="customerName" length="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Complementary Beverage</label>
+                </td>
+                <td>
+                    <input type="radio" value="pepsi" formControlName="selectedFoodItem"> Pepsi
+                    <input type="radio" value="icetea" formControlName="selectedFoodItem"> IceTea
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="selectedVariety">Select Variety</label>
+                </td>
+                <td>
+                    <select class="form-control" formControlName="selectedVariety"  length="20">
+                        <option [value]="">--select--</option>
+                        <option *ngFor="let m of items" [value]="m">{{m}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="selectedQuantity">Select Quantity</label>
+                </td>
+                <td>
+                    <select class="form-control" formControlName="selectedQuantity" >
+                        <option [value]="">--select--</option>
+                        <option *ngFor="let r of quantity" [value]="r">{{r}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><button value="submit" (click)="doProcess()">Submit</button></td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+
+
+ 
